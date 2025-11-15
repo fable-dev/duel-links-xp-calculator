@@ -1,0 +1,358 @@
+:root {
+  --primary: #ffd700;
+  --secondary: #8b0000;
+  --background: #0a0a0a;
+  --card-bg: #1a1a1a;
+  --text: #ffffff;
+  --toggle-active: #ffd700;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--background);
+  color: var(--text);
+  padding: 20px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAKrVq36zwjjgzhhYWGMYAEYB8RmROaABADeOQ8CXl/xfgAAAABJRU5ErkJggg==");
+}
+
+.calculator {
+  background: var(--card-bg);
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+}
+
+.calculator:hover {
+  transform: translateY(-2px);
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.input-group {
+  margin: 1.5rem 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.input-icon {
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  background: #333;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  color: var(--text);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.toggle-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #222;
+  border-radius: 5px;
+}
+
+.toggle-label {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--toggle-active);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(24px);
+}
+
+button {
+  width: 100%;
+  padding: 1rem;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background: #ffd700;
+  color: #8b0000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#result {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #222;
+  border-radius: 5px;
+  border-left: 4px solid var(--primary);
+}
+
+#result strong {
+  color: var(--primary);
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+#result div {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+#result div:last-child {
+  border-bottom: none;
+}
+
+.highlight {
+  color: var(--primary) !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .game-title {
+    font-size: 1.5rem;
+  }
+
+  .calculator-subtitle {
+    font-size: 1rem;
+  }
+
+  input,
+  select {
+    font-size: 0.9rem;
+  }
+}
+
+.scenario {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #333;
+  border-radius: 5px;
+}
+
+.scenario-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.scenario-details span {
+  background: #444 !important;
+  color: var(--text) !important;
+}
+
+.title-container {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-bottom: 2px solid var(--primary);
+}
+
+.game-title {
+  font-family: "Arial Black", sans-serif;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 2rem;
+  text-shadow: 2px 2px 0 #8b0000;
+}
+
+.calculator-subtitle {
+  color: var(--text);
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+/* For mobile */
+@media (max-width: 480px) {
+  .game-title {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  .calculator-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* Vagrant Style */
+.vagrant-results {
+  margin-top: 1rem;
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 215, 0, 0.05);
+  border-radius: 6px;
+  border-left: 3px solid var(--primary);
+  transition: all 0.3s ease;
+}
+
+.important-notes {
+  padding: 1rem;
+  background: rgba(255, 215, 0, 0.05);
+  border-radius: 6px;
+  border-left: 3px solid var(--primary);
+  margin-top: 1rem;
+}
+
+.important-notes ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0 0 0;
+}
+
+.important-notes li {
+  margin: 0.3rem 0;
+  font-size: 0.9em;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Existing matching styles */
+.hidden {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .vagrant-results {
+    padding: 1rem;
+  }
+
+  .summary-row {
+    padding: 0.8rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .important-notes li {
+    font-size: 0.85em;
+  }
+}

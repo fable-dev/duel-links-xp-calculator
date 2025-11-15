@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yu-Gi-Oh! Duel Links - Level Up XP Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body>
+    <div class="calculator">
+      <div class="title-container">
+        <h1 class="game-title">YU-GI-OH! DUEL LINKS</h1>
+        <h2 class="calculator-subtitle">
+          <i class="fas fa-calculator"></i>Level Up XP Calculator
+        </h2>
+      </div>
+
+      <div class="input-group">
+        <label>
+          <i class="fas fa-level-up-alt input-icon"></i>
+          Current Level
+        </label>
+        <input type="number" id="currentLevel" min="1" max="44" value="1" />
+      </div>
+
+      <!-- Add this new input group after level inputs -->
+      <div class="input-group">
+        <label>
+          <i class="fas fa-fire-alt input-icon"></i>
+          XP Progress towards Next Level
+        </label>
+        <input
+          type="number"
+          id="currentXP"
+          min="0"
+          placeholder="Enter current level progress"
+        />
+      </div>
+
+      <div class="input-group">
+        <label>
+          <i class="fas fa-bullseye input-icon"></i>
+          Target Level
+        </label>
+        <input type="number" id="targetLevel" min="2" max="45" value="2" />
+      </div>
+
+      <div class="toggle-group">
+        <label>
+          <i class="fas fa-dragon input-icon"></i>
+          Only Purchasable Vagrants?
+        </label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="vagrantToggle" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-group">
+        <label>
+          <i class="fas fa-user-ninja input-icon"></i>
+          Only Purchasable Bonus Duelist?
+        </label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="bonusDuelistToggle" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-group">
+        <label>
+          <i class="fas fa-bolt input-icon"></i>
+          Enable 1.5x XP Event?
+        </label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="xpEvent" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-group">
+        <label>
+          <i class="fas fa-coins input-icon"></i>
+          Enable Gate Event Duels?
+        </label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="eventTokens" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="input-group">
+        <label>
+          <i class="fas fa-trophy input-icon"></i>
+          Rewards Multiplier
+        </label>
+        <select id="duelTier">
+          <option value="1">1x</option>
+          <option value="2">2x</option>
+          <option value="3">3x</option>
+          <option value="4">4x</option>
+          <option value="5">5x</option>
+        </select>
+      </div>
+
+      <button onclick="calculateDuels()">
+        <i class="fas fa-calculator"></i>
+        Calculate
+      </button>
+
+      <div id="result"></div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="logic.js"></script>
+  </body>
+</html>
